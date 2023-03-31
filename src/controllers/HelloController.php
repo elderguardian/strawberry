@@ -2,10 +2,10 @@
 
 class HelloController extends Controller {
 
-    public function world() {
-        SB::d("debug message");
-        //doSomething()
-        SB::dd("failed with error: 2");
+    public function world(IKernel $kernel) {
+
+        $test = $kernel->get('IAdvancedSay');
+        $test->say('meow');
 
         return $this->view('home');
     }

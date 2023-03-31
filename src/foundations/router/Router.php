@@ -32,8 +32,9 @@ class Router
         if (is_array($routerResult)) {
             $controllerName = $routerResult[0];
             $actionName = $routerResult[1];
+            $kernel = new Kernel();
 
-            echo (new $controllerName)->$actionName();
+            echo (new $controllerName)->$actionName($kernel);
         } else {
             echo $routerResult();
         }
