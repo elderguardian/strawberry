@@ -3,8 +3,8 @@
 
 class Controller
 {
-    function view($fileName): View
+    function view($fileName, $pageVars = []): View
     {
-        return new View($fileName);
+        return new View($fileName, $pageVars);
     }
 }

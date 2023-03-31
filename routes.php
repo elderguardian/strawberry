@@ -8,7 +8,9 @@ $routes = [
         echo 'About page!';
     },
     '/error' => function () {
-        return new View('error');
+        return new View('error', [
+            'message' => '404'
+        ]);
     }
 
     

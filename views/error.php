@@ -1,1 +1,1 @@
-Could not find that route!
+Error: {{ $message }}
