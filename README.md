@@ -53,22 +53,12 @@ Strawberry is a PHP web framework that provides a set of tools to build simple w
 
 <?php
 
-class  HelloWorldController  extends  Controller
-
+class HelloWorldController extends Controller
 {
-
-  
-
-public  function  world(IKernel $kernel)
-
-{
-
-return  'Hello World!';
-
-}
-
-  
-
+	public  function  world(IKernel $kernel)
+	{
+		return  'Hello World!';
+	}
 }
 
 ```
@@ -133,12 +123,12 @@ Hello World!
 
 ```php
 
-public  function  world(IKernel $kernel)
+public function world(IKernel $kernel)
 {
 	//If you do not have any `page vars` you
 	//can leave the array empty or remove it
-	return  $this->view('filename', [
-		'appName'  =>  'my first app!'
+	return $this->view('filename', [
+		'appName' => 'my first app!'
 	]);
 }
 
