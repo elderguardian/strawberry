@@ -1,6 +1,6 @@
 <?php
 
-require_once "src/Router.php";
+require_once "autoloader.php";
 require_once "routes.php";
 
 if (!isset($routes)) {
