@@ -2,14 +2,13 @@
 
 $routes = [
 
-    '/' => function () {
-        echo 'Hello World!';
-    },
+    '/' => [HelloController::class, 'world'],
+
     '/about' => function () {
         echo 'About page!';
     },
     '/error' => function () {
-        echo 'Not found!';
+        return new View('error');
     }
 
     

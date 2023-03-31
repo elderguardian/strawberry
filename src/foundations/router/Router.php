@@ -29,7 +29,14 @@ class Router
 
         $routerResult = $this->routes["/" . $path];
 
-        $routerResult();
+        if (is_array($routerResult)) {
+            $controllerName = $routerResult[0];
+            $actionName = $routerResult[1];
+
+            echo (new $controllerName)->$actionName();
+        } else {
+            echo $routerResult();
+        }
     }
 
 
