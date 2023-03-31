@@ -35,10 +35,37 @@ class View {
 
         return $rendered;
     }
+    
+    private function renderComponents(string $templateVarsRendered) : string
+    {
+        $rendered = $templateVarsRendered;
+
+        $componentsWanted = [];
+        preg_match_all('/{{\s*\w+,.*?\s*}}/', $templateVarsRendered, $componentsWanted);
+        $componentsWanted = $componentsWanted[0];
+
+        foreach ($componentsWanted as $currentComponent) {
+            preg_match('/\w+,\s*.* /', $currentComponent, $componentRaw);
+            $componentRaw = $componentRaw[0];
+            $componentRaw = explode(',', $componentRaw);
+            $componentName = $componentRaw[0];
+
+            $componentParameters = array_slice($componentRaw, 1, sizeof($componentRaw));
+            $componentParameters = implode(',', $componentParameters);
+            $componentParameters = json_decode($componentParameters, true);
+
+            $componentRendered = $this->renderTemplateVars("components/$componentName", $componentParameters);
+            $rendered = str_replace($currentComponent, $componentRendered, $rendered);
+        }
+
+        return $rendered;
+    }
 
     public function __toString(): string
     {
-        return $this->renderTemplateVars($this->fileName, $this->pageVars);
+        $templateVarsRendered = $this->renderTemplateVars($this->fileName, $this->pageVars);
+        return $this->renderComponents($templateVarsRendered);
     }
+
 
 }

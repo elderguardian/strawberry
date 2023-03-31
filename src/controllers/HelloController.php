@@ -3,7 +3,9 @@
 class HelloController extends Controller {
 
     public function world(IKernel $kernel) {
-        return $this->view('home');
+        return $this->view('home', [
+            'firstPerson' => 'Boss cat'
+        ]);
     }
     
 }
