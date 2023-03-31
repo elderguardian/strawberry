@@ -87,13 +87,11 @@ return  'Hello World!';
 
 $routes = [
 
-...
+	...
 
-'/'  => [HelloWorldController::class, 'world'],
+	'/'  => [HelloWorldController::class, 'world'],
 
-...
-
-  
+	...
 
 ];
 
@@ -106,7 +104,6 @@ $routes = [
 ```
 
 user@box:/var/www/html$ curl http://localhost/
-
 Hello World!
 
 ```
@@ -137,19 +134,12 @@ Hello World!
 ```php
 
 public  function  world(IKernel $kernel)
-
 {
-
-//If you do not have any `page vars` you
-
-//can leave the array empty or remove it
-
-return  $this->view('filename', [
-
-'appName'  =>  'my first app!'
-
-]);
-
+	//If you do not have any `page vars` you
+	//can leave the array empty or remove it
+	return  $this->view('filename', [
+		'appName'  =>  'my first app!'
+	]);
 }
 
 ```
@@ -167,11 +157,9 @@ return  $this->view('filename', [
 ```html
 
 <div>
+	<!-- Add component vars by using {{ $name }} -->
 
-<!-- Add component vars by using {{ $name }} -->
-
-<p><strong>{{ $name }}</strong>: {{ $description }}</p>
-
+	<p><strong>{{ $name }}</strong>: {{ $description }}</p>
 </div>
 
 ```
@@ -188,7 +176,6 @@ return  $this->view('filename', [
 
 <h2>Cards:</h2>
 
-  
 
 <!-- Import card component -->
 
