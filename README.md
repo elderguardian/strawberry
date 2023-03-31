@@ -24,14 +24,14 @@ Strawberry is a PHP web framework that provides a set of tools to build simple w
 1. Create a new controller with action in the `src/controllers` directory.
 
 ```php
- <?php
+<?php
  
 class HelloWorldController extends Controller
 {
 
 	public function world(IKernel $kernel)
 	{
-			return 'Hello World!';
+		return 'Hello World!';
 	}
 
 }
