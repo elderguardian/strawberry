@@ -1,7 +1,8 @@
 
 # Strawberry framework
 
-  
+
+Note: I changed a lot. These docs have flaws. Will fix later
 
 Strawberry is a PHP web framework that provides a set of tools to build simple web applications.
 
