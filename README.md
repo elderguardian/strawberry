@@ -1,193 +1,81 @@
+# Strawberry
 
-# Strawberry framework
+<p>
+   <img src="./strawberry-php-cake.png" alt="PHP logo on a strawberry cake"/>
+</p>
 
+## What is strawberry?
 
-Note: I changed a lot. These docs have flaws. Will fix later
+Strawberry is a lightweight approach to make working with PHP less of a pain in the ass.The framework comes with nothing more than a router and additional functionality needs to be installed afterward.
 
-Strawberry is a PHP web framework that provides a set of tools to build simple web applications.
+> **_NOTE:_** I'm a kid and not a professional so please do not rely on strawberry or strawberry extensions in larger projects or production unless you know what you are doing.
 
-  
+## Setup
 
-## Features
+### Requirements
 
-  
+- Written in PHP 8.1.2 (older versions are untested)
+- Apache web server allowing .htaccess files
 
-- MVC as frontend architecture
-
-- Object-oriented programming (OOP)
-
-- Dependency Injection (DI)
-
-- Routing and template engine
-
-- Extensions and other features
-
-  
-
-## Requirements
-
-- Written in PHP 8.1.2
-
-- Apache web server
-
-  
-
-## Installation
-
-  
+### Installation
 
 1. Download the latest release or git clone the repository
-
 2. Move the files to your web server directory
-
-  
 
 ## Get Started
 
-  
+### Creating your first controller
 
-1. Create a new controller with action in the `src/controllers` directory.
+1. Create a new class in the `src/controllers` directory.
+2. Let your class extend controller and add a function.
+3. Let your function return something like `Hello World!`
+4. Add your controller to the routes in `routes.php`
 
-  
+##### **`HelloWorldController.php`**
 
 ```php
-
 <?php
 
 class HelloWorldController extends Controller
 {
-	public  function  world(IKernel $kernel)
+	public function world()
 	{
 		return  'Hello World!';
 	}
 }
-
 ```
 
-  
-
-2. Add your Controller to the routes in `routes.php`
-
-  
+##### **`routes.php`**
 
 ```php
-
 <?php
 
-  
-
 $routes = [
-
 	...
 
 	'/'  => [HelloWorldController::class, 'world'],
 
 	...
-
 ];
 
 ```
 
-  
-
-3. Send a request to your web server.
+Now you should be able to access your controller.
 
 ```
-
 user@box:/var/www/html$ curl http://localhost/
 Hello World!
-
 ```
 
-  
-  
+### Installing optional features
 
-### Using views
+> Each extension has its own installation procedure so please read the documentation on it.
 
-  
+There is also an [experimental CLI](https://github.com/elderguardian/strawberry-cli) for installing extensions.
+Please do not expect it to work perfectly on the first try.
 
-1. Create a new view in the `views/` directory with the `.php` file extension
+#### List of recommended extensions
 
-  
-
-```html
-
-<!-- Add page vars by using {{ $name }} -->
-
-<h1>Welcome to {{ $appName }}</h1>
-
-```
-
-  
-
-2. Return a new view of that file in your controller action
-
-```php
-
-public function world(IKernel $kernel)
-{
-	//If you do not have any `page vars` you
-	//can leave the array empty or remove it
-	return $this->view('filename', [
-		'appName' => 'my first app!'
-	]);
-}
-
-```
-
-  
-
-### View components
-
-  
-
-1. Create a new file in `views/components` directory with the `.php` file extension
-
-  
-
-```html
-
-<div>
-	<!-- Add component vars by using {{ $name }} -->
-
-	<p><strong>{{ $name }}</strong>: {{ $description }}</p>
-</div>
-
-```
-
-  
-
-2. Import the component in a normal view file
-
-  
-
-```html
-
-<h1>Welcome</h1>
-
-<h2>Cards:</h2>
-
-
-<!-- Import card component -->
-
-{{ card, { "name": "John Doe", "description": "Hello World!" } }}
-
-```
-
-  
-
-3. Instead of hard coded strings you can pass page vars to the components
-
-  
-
-```html
-
-{{ card, { "name": " {{ $firstPerson }}", "description": "meow!" } }}
-
-```
-
-
-### Extensions
-
-List of official extensions:
-1. [strawberry-io](https://github.com/elderguardian/strawberry-io): Extension for easier input and output handling
+1. [strawberry-io](https://github.com/elderguardian/strawberry-io): Simplifies query string input and json output
+2. [strawberry-di](https://github.com/elderguardian/strawberry-di): DI Container for strawberry.
+3. [strawberry-view](https://github.com/elderguardian/strawberry-view): Primitive template engine that supports components
