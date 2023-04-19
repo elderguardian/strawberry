@@ -2,5 +2,5 @@
 
 interface IMiddleware
 {
-    public function execute(): void;
+    public function canPass(): bool;
 }

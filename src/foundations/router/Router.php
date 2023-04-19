@@ -13,9 +13,9 @@ class Router
     private function executeMiddlewares(array $middlewares): void
     {
         foreach ($middlewares as $middleware) {
-            $shouldDie = (new $middleware)->execute();
+            $passes = (new $middleware)->canPass();
 
-            if ($shouldDie) {
+            if (!$passes) {
                 die;
             }
         }

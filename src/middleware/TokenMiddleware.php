@@ -3,12 +3,14 @@
 class TokenMiddleware implements IMiddleware
 {
 
-    public function execute(): void
+    public function canPass(): bool
     {
         if (!$_GET['token']) {
             echo "You are missing a token parameter!";
-            die;
+            return false;
         }
+
+        return true;
     }
 
 }
