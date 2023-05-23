@@ -1,6 +1,6 @@
 <?php
 
-class TokenMiddleware implements IMiddleware
+class AuthorizationMiddleware implements IMiddleware
 {
 
     public function canPass(): bool
