@@ -1,6 +1,6 @@
 <?php
 
-class HiddenController extends Controller {
+class HiddenController implements IController {
 
     public function index() {
         return 'This site is protected by middleware!';
