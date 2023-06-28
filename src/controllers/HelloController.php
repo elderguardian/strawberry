@@ -1,6 +1,6 @@
 <?php
 
-class HelloController extends Controller {
+class HelloController implements IController {
 
     public function world() {
         return 'Hello World!';
