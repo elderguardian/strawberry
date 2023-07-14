@@ -1,10 +1,6 @@
-# Strawberry
+![strawberry-php-cake](https://github.com/elderguardian/strawberry/assets/129489839/18601d64-c321-49a3-aa78-3b5ba7216cbf)
 
-<p>
-   <img src="./strawberry-php-cake.png" alt="PHP logo on a strawberry cake"/>
-</p>
-
-## What is strawberry?
+## What is Strawberry?
 
 Strawberry is a lightweight approach to make working with PHP less of a pain in the ass.The framework comes with nothing more than a router and additional functionality needs to be installed afterward.
 
@@ -69,12 +65,7 @@ Hello World!
 
 ### Installing optional features
 
-> Each extension has its own installation procedure so please read the documentation on it.
-
-There is also an [experimental CLI](https://github.com/elderguardian/strawberry-cli) for installing extensions.
-Please do not expect it to work perfectly on the first try.
-
-#### List of recommended extensions
+#### List of official extensions
 
 1. [strawberry-io](https://github.com/elderguardian/strawberry-io): Simplifies query string input and json output
 2. [strawberry-di](https://github.com/elderguardian/strawberry-di): DI Container for strawberry.
